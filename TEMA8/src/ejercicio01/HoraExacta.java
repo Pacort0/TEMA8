@@ -1,4 +1,4 @@
-package ejercicios;
+package ejercicio01;
 
 public class HoraExacta extends Hora{
 	private int segundos = 0;
