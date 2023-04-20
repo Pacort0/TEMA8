@@ -26,6 +26,7 @@ public class MainProductos {
 		
 		System.out.println("Introduzca el nombre del producto: ");
 		producto[contador].setNombre(sc.nextLine());
+		System.out.println("Introduzca el precio del producto: ");
 		
 		
 		return producto;
