@@ -1,48 +1,47 @@
 package ejercicio03;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class MainProductos {
-	
-	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		Productos[] producto = new Productos[0];
+		// Nos creamos un producto
+		Productos p = new Productos("Plátano", 0.4);
+
+		// Imprimimos resultados.
+		System.out.println(p.toString());
+		System.out.println(p.calcular(3));
+
+		// Nos creamos un perecedero.
+		Productos p1 = new Perecederos("Plátano", 0.4, 2);
+
+		// Imprimimos resultados.
+		System.out.println(p1.toString());
+		System.out.println(p1.calcular(10));
+
+		// Creamos un no perecedero.
+		Productos p2 = new NoPerecederos("Sal 1kg", 2, "Comestible");
+
+		// Imprimimos resultados.
+		System.out.println(p2.toString());
+		System.out.println(p2.calcular(4));
+
+		// Creamos un array de tres productos.
+		Productos[] tienda = new Productos[6];
+
+		// Inicializamos el array.
+		tienda[0] = new Productos("Peine", 2.5);
+		tienda[1] = new Productos("Ordenador", 160);
+		tienda[2] = new Perecederos("Tomate", 1.25, 3);
+		tienda[3] = new Perecederos("Galletas", 1.75, 4);
+		tienda[4] = new NoPerecederos("Miel", 4.5, "Comestible");
+		tienda[5] = new NoPerecederos("Canicas", 7, "Juguete");
+
 		
-		
-	}
-	
-	public static void menu() {
-		System.out.println("Introduzca una opción: "
-				+ "\n1. Mostrar productos."
-				+ "\n2. Crear un nuevo producto."
-				+ "\n3. Salir.");
-	}
-	
-	public static Productos[] crearProd(Productos[] producto, int contador){
-		
-		producto = Arrays.copyOf(producto, producto.length);
-		
-		System.out.println("Introduzca el nombre del producto: ");
-		producto[contador].setNombre(sc.nextLine());
-		System.out.println("Introduzca el precio del producto: ");
-		
-		
-		return producto;
-	}
-	
-	public static int elijeTipo() {
-		int eleccion;
-		
-		do{
-			System.out.println("Elija un tipo de producto: "
-				+ "\n1. Perecedero."
-				+ "\n2. No perecedero.");
-			eleccion = sc.nextInt();
-		}while(eleccion!=1 && eleccion!=2);
-		
-		return eleccion;
+
+		for (int i = 0; i < tienda.length; i++) {
+			System.out.print(tienda[i].toString() + " | Venta de 5 productos: ");
+			System.out.println(tienda[i].calcular(5));
+		}
+
 	}
 
 }

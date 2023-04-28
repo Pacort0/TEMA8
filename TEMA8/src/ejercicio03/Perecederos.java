@@ -18,7 +18,7 @@ public class Perecederos extends Productos {
 
 	@Override
 	public String toString() {
-		return super.getNombre() + ". Producto perecedero que cuesta " + super.getPrecio() + " y caduca en "
+		return super.getNombre() + ": Producto perecedero que cuesta " + super.getPrecio() + " y caduca en "
 				+ diasACaducar + " días.";
 
 	}
@@ -39,7 +39,7 @@ public class Perecederos extends Productos {
 			break;
 		default:
 			System.out.println("No se aplica descuento, ya que quedan " + diasACaducar
-					+ " días antes de que el producto caduque.");
+					+ " días hasta de que el producto caduque.");
 		}
 		return precio;
 	}

@@ -18,7 +18,7 @@ public class NoPerecederos extends Productos {
 
 	@Override
 	public String toString() {
-		return super.getNombre() + ". Producto no perecedero tipo " + tipo + ", cuesta " + super.getPrecio();
+		return super.getNombre() + ": Producto no perecedero tipo " + tipo + ", cuesta " + super.getPrecio();
 	}
 
 	@Override
