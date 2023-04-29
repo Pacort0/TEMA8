@@ -26,11 +26,11 @@ public class Electrodomestico {
 		}
 	}
 
-	public Electrodomestico(int peso, double precioBase, Consumo consumo, Color color) {
+	public Electrodomestico(int peso, double precioBase, String consumo, String color) {
 		this.peso = peso;
 		this.precioBase = precioBase;
-		this.consumo = consumo;
-		this.color = color;
+		this.consumo = Consumo.valueOf(consumo);
+		this.color = Color.valueOf(color);
 	}
 
 	public void setPeso(int peso) {
@@ -41,12 +41,12 @@ public class Electrodomestico {
 		this.precioBase = precioBase;
 	}
 
-	public void setConsumo(Consumo consumo) {
-		this.consumo = consumo;
+	public void setConsumo(String consumo) {
+		this.consumo = Consumo.valueOf(consumo);
 	}
 
-	public void setColor(Color color) {
-		this.color = color;
+	public void setColor(String color) {
+		this.color = Color.valueOf(color);
 	}
 
 	boolean comprobarConsumoEnergetico(char letra) {

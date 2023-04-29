@@ -4,7 +4,7 @@ public class Television extends Electrodomestico{
 	private int resolucion = 20;
 	private boolean TDT = false;
 	
-	public Television(int peso, double precioBase, Consumo consumo, Color color, int resolucion, boolean tdt) {
+	public Television(int peso, double precioBase, String consumo, String color, int resolucion, boolean tdt) {
 		super(peso, precioBase, consumo, color);
 		this.resolucion = resolucion;
 		TDT = tdt;
@@ -31,7 +31,7 @@ public class Television extends Electrodomestico{
 		double precio = 0; 
 		
 		if(resolucion > 40) {
-			precio += super.precioBase * 1.3;
+			precio += super.precioBase * 1.3 - super.precioBase;
 		}
 		if(TDT == true) {
 			precio += 50;
