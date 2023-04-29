@@ -1,6 +1,6 @@
 package ejercicio04;
 
-public class Electrodoméstico {
+public class Electrodomestico {
 	enum Consumo {
 		A, B, C, D, E, F
 	}
@@ -14,10 +14,10 @@ public class Electrodoméstico {
 	protected Consumo consumo = Consumo.F;
 	protected Color color = Color.blanco;
 
-	public Electrodoméstico() {
+	public Electrodomestico() {
 	}
 
-	public Electrodoméstico(int peso, double precioBase) {
+	public Electrodomestico(int peso, double precioBase) {
 		if (peso > 0) {
 			this.peso = peso;
 		}
@@ -26,7 +26,7 @@ public class Electrodoméstico {
 		}
 	}
 
-	public Electrodoméstico(int peso, double precioBase, Consumo consumo, Color color) {
+	public Electrodomestico(int peso, double precioBase, Consumo consumo, Color color) {
 		this.peso = peso;
 		this.precioBase = precioBase;
 		this.consumo = consumo;
@@ -49,7 +49,7 @@ public class Electrodoméstico {
 		this.color = color;
 	}
 
-	private boolean comprobarConsumoEnergetico(char letra) {
+	boolean comprobarConsumoEnergetico(char letra) {
 		boolean letraCorrecta = false;
 
 		if (letra == 'A' || letra == 'B' || letra == 'C' || letra == 'D' || letra == 'E' || letra == 'F') {
@@ -59,7 +59,7 @@ public class Electrodoméstico {
 		return letraCorrecta;
 	}
 
-	private boolean comprobarColor(String color) {
+	boolean comprobarColor(String color) {
 		boolean colorCorrecto = false;
 
 		if (color.equalsIgnoreCase("negro") || color.equalsIgnoreCase("gris") || color.equalsIgnoreCase("azul")
@@ -70,7 +70,7 @@ public class Electrodoméstico {
 		return colorCorrecto;
 	}
 
-	private double precioFinal() {
+	double precioFinal() {
 		double precio = 0;
 
 		switch (consumo) {
@@ -91,6 +91,16 @@ public class Electrodoméstico {
 			break;
 		default:
 			precio = precioBase + 10;
+		}
+
+		if (peso > 0 && peso < 20) {
+			precio += 10;
+		} else if (peso >= 20 && peso < 50) {
+			precio += 50;
+		} else if (peso >= 50 && peso < 80) {
+			precio += 80;
+		} else {
+			precio += 100;
 		}
 
 		return precio;

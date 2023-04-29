@@ -1,5 +1,43 @@
 package ejercicio04;
 
-public class Television {
+public class Television extends Electrodomestico{
+	private int resolucion = 20;
+	private boolean TDT = false;
+	
+	public Television(int peso, double precioBase, Consumo consumo, Color color, int resolucion, boolean tdt) {
+		super(peso, precioBase, consumo, color);
+		this.resolucion = resolucion;
+		TDT = tdt;
+	}
 
+	public Television() {
+		super();
+	}
+
+	public Television(int peso, double precioBase) {
+		super(peso, precioBase);
+	}
+
+	public void setResolucion(int resolucion) {
+		this.resolucion = resolucion;
+	}
+
+	public void setTDT(boolean tdt) {
+		TDT = tdt;
+	}
+
+	@Override
+	double precioFinal() {
+		double precio = 0; 
+		
+		if(resolucion > 40) {
+			precio += super.precioBase * 1.3;
+		}
+		if(TDT == true) {
+			precio += 50;
+		}
+		
+		return super.precioFinal() + precio;
+	}
+	
 }
