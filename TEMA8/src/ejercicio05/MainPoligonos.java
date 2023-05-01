@@ -3,35 +3,48 @@ package ejercicio05;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Clase ejecutable de 'Poligono' y sus clases hijas
+ * @author Admin
+ *
+ */
 public class MainPoligonos {
 
+	// Escáner estático de la clase
 	static Scanner sc = new Scanner(System.in);
+	//Array estático de polígonos
 	static Poligono[] listaPoligs = new Poligono[0];
 
 	public static void main(String[] args) {
+		//Variable para guardar la opción introducida por el usuario
 		int opcion;
-
+		
+		//Mientras la opción no sea '4', se seguirá mostrando el menú
 		do {
 			opcion = menu();
 			switch (opcion) {
 			case 1:
-				novoTriangulo();
+				novoTriangulo(); //Creamos un triángulo
 				break;
 			case 2:
-				novoRectangulo();
+				novoRectangulo(); //Creamos un rectángulo
 				break;
 			case 3:
-				mostrarDatos();
+				mostrarDatos(); //Mostramos los datos de los objetos del array
 				break;
 			case 4:
-				System.out.println("HASTA LUEGOOOO");
+				System.out.println("HASTA LUEGOOOO"); //Cerramos el programa
 				break;
 			default:
-				System.err.println("Esa opción no está contemplada.");
+				System.err.println("Esa opción no está contemplada."); //Mensaje de error
 			}
 		} while (opcion != 4);
 	}
 
+	/**
+	 * Función que imprime el menú y guarda la opción del usuario
+	 * @return Devuelve la elección del usuario
+	 */
 	private static int menu() {
 
 		System.out.println("Introduzca una opción: " + "\n1. Introducir un triángulo."
@@ -41,6 +54,9 @@ public class MainPoligonos {
 		return opcion;
 	}
 	
+	/**
+	 * Función para crear un triángulo
+	 */
 	private static void novoTriangulo() {
 		int numLados = 3;
 		double lado1, lado2, lado3;
@@ -57,6 +73,9 @@ public class MainPoligonos {
 		
 	}
 	
+	/**
+	 * Función para crear un rectángulo
+	 */
 	private static void novoRectangulo() {
 		int numLados = 4;
 		double base, altura;
@@ -69,6 +88,9 @@ public class MainPoligonos {
 		listaPoligs[listaPoligs.length-1] = new Rectangulo(numLados, base, altura);
 	}
 	
+	/**
+	 * Función que recorre el array y muestra los datos de los objetos del mismo
+	 */
 	private static void mostrarDatos() {
 		for(Poligono p : listaPoligs){
 			System.out.println(p.toString() + " | El área del poligono es: " + p.area());
