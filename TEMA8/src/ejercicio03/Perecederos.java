@@ -24,7 +24,9 @@ public class Perecederos extends Productos {
 	 */
 	public Perecederos(String nombre, double precio, int diasACaducar) {
 		super(nombre, precio);
-		this.diasACaducar = diasACaducar;
+		if (diasACaducar > 0) {
+			this.diasACaducar = diasACaducar;
+		}
 	}
 
 	/**

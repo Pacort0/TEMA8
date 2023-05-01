@@ -25,7 +25,9 @@ public class Productos {
 	 */
 	public Productos(String nombre, double precio) {
 		this.nombre = nombre;
-		this.precio = precio;
+		if (precio > 0) {
+			this.precio = precio;
+		}
 	}
 
 	/**
