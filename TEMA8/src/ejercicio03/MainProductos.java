@@ -1,71 +1,53 @@
 package ejercicio03;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
+/**
+ * Clase ejecutable del ejercicio 3. En ella se comprueba que todas las clases y
+ * todos los métodos en ellas definidos funcionan con éxito
+ * 
+ * @author Admin
+ *
+ */
 public class MainProductos {
 
-	static Scanner sc = new Scanner(System.in);
-
 	public static void main(String[] args) {
-		int opcion;
-		int posicion = 0;
-		Productos[] producto = new Productos[0];
+		// Creamos un producto
+		Productos p = new Productos("Plátano", 0.4);
 
-		do {
-			menu();
-			opcion = sc.nextInt();
+		// Imprimimos sus datos y el precio de 3 unidades
+		System.out.println(p.toString());
+		System.out.println(p.calcular(3));
 
-			switch (opcion) {
-			case 1:
-				muestraProductos(producto);
-				break;
-			case 2:
-				crearProd(producto, posicion);
-				posicion++;
-				break;
-			default:
-				System.err.println("Esa opción no está contemplada.");
-			}
-		} while (opcion != 3);
+		// Creamos un producto perecedero
+		Productos p1 = new Perecederos("Plátano", 0.4, 2);
 
-	}
+		// Imprimimos sus datos y el precio de 10 unidades
+		System.out.println(p1.toString());
+		System.out.println(p1.calcular(10));
 
-	public static void menu() {
-		System.out.println("Introduzca una opción: " + "\n1. Mostrar productos." + "\n2. Crear un nuevo producto."
-				+ "\n3. Salir.");
-	}
+		// Creamos un producto no perecedero
+		Productos p2 = new NoPerecederos("Sal 1kg", 2, "Comestible");
 
-	public static void muestraProductos(Productos[] producto) {
-		for (Productos productos : producto) {
-			System.out.println(productos.toString());
+		// Imprimimos sus datos y el precio de 4 unidades
+		System.out.println(p2.toString());
+		System.out.println(p2.calcular(4));
+
+		// Creamos un array de 6 productos
+		Productos[] tienda = new Productos[6];
+
+		// Creamos los productos del array
+		tienda[0] = new Productos("Peine", 2.5);
+		tienda[1] = new Productos("Ordenador", 160);
+		tienda[2] = new Perecederos("Tomate", 1.25, 3);
+		tienda[3] = new Perecederos("Galletas", 1.75, 4);
+		tienda[4] = new NoPerecederos("Miel", 4.5, "Comestible");
+		tienda[5] = new NoPerecederos("Canicas", 7, "Juguete");
+		
+		// Imprimimos los datos de todos los productos y el precio de la venta de 5 productos
+		for (int i = 0; i < tienda.length; i++) {
+			System.out.print(tienda[i].toString() + " | Venta de 5 productos: ");
+			System.out.println(tienda[i].calcular(5));
 		}
-	}
 
-	public static Productos[] crearProd(Productos[] producto, int contador) {
-		
-		producto = Arrays.copyOf(producto, producto.length + 1);
-		System.out.println(producto.length);
-
-		sc.nextLine();
-		
-		System.out.println("Introduzca el nombre del producto: ");
-		producto[contador].setNombre(sc.nextLine());
-		System.out.println("Introduzca el precio del producto: ");
-		producto[contador].setPrecio(sc.nextDouble());
-
-		return producto;
-	}
-
-	public static int elijeTipo() {
-		int eleccion;
-
-		do {
-			System.out.println("Elija un tipo de producto: " + "\n1. Perecedero." + "\n2. No perecedero.");
-			eleccion = sc.nextInt();
-		} while (eleccion != 1 && eleccion != 2);
-
-		return eleccion;
 	}
 
 }
