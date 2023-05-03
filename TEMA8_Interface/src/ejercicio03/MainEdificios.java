@@ -23,7 +23,8 @@ public class MainEdificios {
 		
 		for(Polideportivo p : polidepors) {
 			System.out.print(p.getSuperficieEdificio() + " | ");
-			System.out.println(p.getNombre());
+			System.out.print(p.getNombre() + " | ");
+			System.out.println(p.getTipoInstalacion());
 		}
 	}
 

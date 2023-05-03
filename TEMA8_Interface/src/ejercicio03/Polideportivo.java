@@ -20,8 +20,13 @@ public class Polideportivo implements instalacion, edificio{
 
 	@Override
 	public int getTipoInstalacion() {
+		int tipo = 0;
 		
-		return 0;
+		if(getClass().getSimpleName().equalsIgnoreCase("polideportivo")) {
+			tipo = 1;
+		};
+		
+		return tipo;
 	}
 
 	@Override
