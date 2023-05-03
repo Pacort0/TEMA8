@@ -1,7 +1,18 @@
 package ejercicio03;
 
+/**
+ * Clase 'Polideportivo'. En ella se definen todos los atributos y métodos de estos objetos
+ * @author frodriguez
+ *
+ */
 public class Polideportivo implements instalacion, edificio{
+	/**
+	 * Atributo protegido cadena 'nombre', es el nombre del polideportivo
+	 */
 	protected String nombre;
+	/**
+	 * Atributo protegido double 'superficie', es la superficie del edificio
+	 */
 	protected double superficie;
 	
 	public Polideportivo(String nombre, double superficie) {
